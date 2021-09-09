@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/styles/index.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BottomNavIcon extends StatelessWidget {
@@ -12,9 +13,9 @@ class BottomNavIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       source,
-      width: 26,
-      height: 26,
-      color: isActive ? Colors.blue : Colors.red,
+      width: 28,
+      height: 28,
+      color: isActive ? AppColors.primary : AppColors.gray400,
     );
   }
 }

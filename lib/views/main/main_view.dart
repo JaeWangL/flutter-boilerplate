@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boilerplate/common/index.dart';
 import 'package:flutter_boilerplate/di.dart';
+import 'package:flutter_boilerplate/styles/index.dart';
 import 'package:flutter_boilerplate/views/main/main_cubit.dart';
 import 'package:flutter_boilerplate/views/main/widgets/bottom_nav_icon.dart';
 import 'tabViews/index.dart';
@@ -55,9 +56,11 @@ class MainView extends BaseWidget<MainCubit, MainState> {
       currentIndex: currentIndex,
       type: BottomNavigationBarType.fixed,
       elevation: 0,
-      backgroundColor: Color.fromRGBO(255, 255, 255, 0.2),
-      unselectedItemColor: Colors.red,
-      selectedItemColor: Colors.blue,
+      backgroundColor: Colors.transparent,
+      unselectedItemColor: AppColors.gray400,
+      selectedItemColor: AppColors.primary,
+      selectedFontSize: 10,
+      unselectedFontSize: 10,
       onTap: _onItemTap,
       items: const [
         BottomNavigationBarItem(
