@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boilerplate/common/index.dart';
 import 'package:flutter_boilerplate/di.dart';
 import 'package:flutter_boilerplate/views/main/main_cubit.dart';
-
+import 'package:flutter_boilerplate/views/main/widgets/bottom_nav_icon.dart';
 import 'tabViews/index.dart';
 
 class MainView extends BaseWidget<MainCubit, MainState> {
@@ -54,16 +54,37 @@ class MainView extends BaseWidget<MainCubit, MainState> {
     return BottomNavigationBar(
       currentIndex: currentIndex,
       type: BottomNavigationBarType.fixed,
+      elevation: 0,
+      backgroundColor: Color.fromRGBO(255, 255, 255, 0.2),
+      unselectedItemColor: Colors.red,
+      selectedItemColor: Colors.blue,
       onTap: _onItemTap,
-      items: [
-        const BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        const BottomNavigationBarItem(
-            icon: Icon(Icons.date_range), label: "Shuttle"),
-        const BottomNavigationBarItem(icon: Icon(Icons.apps), label: "Diet"),
-        const BottomNavigationBarItem(
-            icon: Icon(Icons.notification_important), label: 'Notices'),
-        const BottomNavigationBarItem(
-            icon: Icon(Icons.person), label: "Settings"),
+      items: const [
+        BottomNavigationBarItem(
+            icon: BottomNavIcon(source: 'assets/icons/ic_tab_home.svg'),
+            activeIcon: BottomNavIcon(
+                source: 'assets/icons/ic_tab_home.svg', isActive: true),
+            label: "Home"),
+        BottomNavigationBarItem(
+            icon: BottomNavIcon(source: 'assets/icons/ic_tab_shuttle.svg'),
+            activeIcon: BottomNavIcon(
+                source: 'assets/icons/ic_tab_shuttle.svg', isActive: true),
+            label: "Shuttle"),
+        BottomNavigationBarItem(
+            icon: BottomNavIcon(source: 'assets/icons/ic_tab_diet.svg'),
+            activeIcon: BottomNavIcon(
+                source: 'assets/icons/ic_tab_diet.svg', isActive: true),
+            label: "Diet"),
+        BottomNavigationBarItem(
+            icon: BottomNavIcon(source: 'assets/icons/ic_tab_notices.svg'),
+            activeIcon: BottomNavIcon(
+                source: 'assets/icons/ic_tab_notices.svg', isActive: true),
+            label: "Notices"),
+        BottomNavigationBarItem(
+            icon: BottomNavIcon(source: 'assets/icons/ic_tab_settings.svg'),
+            activeIcon: BottomNavIcon(
+                source: 'assets/icons/ic_tab_settings.svg', isActive: true),
+            label: "Settings"),
       ],
     );
   }
