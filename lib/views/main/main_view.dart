@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boilerplate/common/index.dart';
@@ -26,7 +28,7 @@ class MainView extends BaseWidget<MainCubit, MainState> {
   @override
   Widget buildWidget(
     BuildContext context,
-    TextDirection direction,
+    ui.TextDirection direction,
     bool isDarkMode,
   ) {
     return BlocBuilder(
@@ -62,32 +64,35 @@ class MainView extends BaseWidget<MainCubit, MainState> {
       selectedFontSize: 10,
       unselectedFontSize: 10,
       onTap: _onItemTap,
-      items: const [
+      items: [
         BottomNavigationBarItem(
-            icon: BottomNavIcon(source: 'assets/icons/ic_tab_home.svg'),
-            activeIcon: BottomNavIcon(
+            icon: const BottomNavIcon(source: 'assets/icons/ic_tab_home.svg'),
+            activeIcon: const BottomNavIcon(
                 source: 'assets/icons/ic_tab_home.svg', isActive: true),
-            label: "Home"),
+            label: "common.tabHome".tr()),
         BottomNavigationBarItem(
-            icon: BottomNavIcon(source: 'assets/icons/ic_tab_shuttle.svg'),
-            activeIcon: BottomNavIcon(
+            icon:
+                const BottomNavIcon(source: 'assets/icons/ic_tab_shuttle.svg'),
+            activeIcon: const BottomNavIcon(
                 source: 'assets/icons/ic_tab_shuttle.svg', isActive: true),
-            label: "Shuttle"),
+            label: "common.tabShuttle".tr()),
         BottomNavigationBarItem(
-            icon: BottomNavIcon(source: 'assets/icons/ic_tab_diet.svg'),
-            activeIcon: BottomNavIcon(
+            icon: const BottomNavIcon(source: 'assets/icons/ic_tab_diet.svg'),
+            activeIcon: const BottomNavIcon(
                 source: 'assets/icons/ic_tab_diet.svg', isActive: true),
-            label: "Diet"),
+            label: "common.tabDiet".tr()),
         BottomNavigationBarItem(
-            icon: BottomNavIcon(source: 'assets/icons/ic_tab_notices.svg'),
-            activeIcon: BottomNavIcon(
+            icon:
+                const BottomNavIcon(source: 'assets/icons/ic_tab_notices.svg'),
+            activeIcon: const BottomNavIcon(
                 source: 'assets/icons/ic_tab_notices.svg', isActive: true),
-            label: "Notices"),
+            label: "common.tabNotices".tr()),
         BottomNavigationBarItem(
-            icon: BottomNavIcon(source: 'assets/icons/ic_tab_settings.svg'),
-            activeIcon: BottomNavIcon(
+            icon:
+                const BottomNavIcon(source: 'assets/icons/ic_tab_settings.svg'),
+            activeIcon: const BottomNavIcon(
                 source: 'assets/icons/ic_tab_settings.svg', isActive: true),
-            label: "Settings"),
+            label: "common.tabSettings".tr()),
       ],
     );
   }

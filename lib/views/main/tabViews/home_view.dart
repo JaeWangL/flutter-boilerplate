@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
     return BackgroundImageView(
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         GradientText(
-          'Test Message',
+          'Message Test',
           colors: [
             Colors.blue,
             Colors.red,
@@ -17,12 +17,12 @@ class HomeView extends StatelessWidget {
           style: TextStyle(fontSize: 42, fontWeight: FontWeight.w700),
         ),
         GradientText(
-          'Secondary Msg',
+          'Secondary Message',
           colors: [
             Colors.purple,
             Colors.orange,
           ],
-          style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700),
+          style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
         )
       ]),
     );
