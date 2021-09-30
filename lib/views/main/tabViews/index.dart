@@ -1,4 +1,4 @@
-export 'diet_view.dart';
+export 'diet/index.dart';
 export 'home_view.dart';
 export 'notices_view.dart';
 export 'settings_view.dart';

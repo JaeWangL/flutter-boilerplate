@@ -8,5 +8,5 @@ abstract class DietRepository {
 
   DietRepository(this.api, this.caching);
 
-  Stream<ApiResource<DietSocietyModel>> getDietSociety$();
+  Stream<ApiResource<List<DietSocietyModel>>> getDietSociety$();
 }

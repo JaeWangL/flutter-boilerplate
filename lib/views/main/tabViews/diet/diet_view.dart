@@ -1,16 +1,27 @@
+import 'dart:ui' as ui;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_boilerplate/common/index.dart';
+import 'package:flutter_boilerplate/di.dart';
+import 'package:flutter_boilerplate/domain/models/index.dart';
 import 'package:flutter_boilerplate/styles/colors.dart';
+import 'package:flutter_boilerplate/views/main/tabViews/diet/diet_cubit.dart';
 import 'package:flutter_boilerplate/widgets/index.dart';
 
-class DietView extends StatelessWidget {
+class DietView extends BaseWidget<DietCubit, DietState> {
   final ScrollController _scrollController = ScrollController();
+  final DietCubit _cubit = serviceLocator.get<DietCubit>();
 
-  DietView({Key? key}) : super(key: key);
+  DietView({Key? key}) : super(key: key) {
+    _cubit.getDietSociety();
+  }
 
   @override
-  Widget build(BuildContext context) {
+  DietCubit getWidgetBloc() => _cubit;
+
+  Widget buildContent(BuildContext context, List<DietSocietyModel> data) {
     return BackgroundImageView(
       child: NestedScrollView(
         controller: _scrollController,
@@ -63,14 +74,45 @@ class DietView extends StatelessWidget {
                     width: double.infinity,
                     margin: const EdgeInsets.symmetric(horizontal: 12.0),
                     child: Text(
-                      'text $i',
-                      style: TextStyle(fontSize: 16.0),
+                      data[0].value,
+                      style: const TextStyle(fontSize: 16.0),
                     ));
               },
             );
           }).toList(),
         ),
       ),
+    );
+  }
+
+  @override
+  Widget buildWidget(
+    BuildContext context,
+    ui.TextDirection direction,
+    bool isDarkMode,
+  ) {
+    return BlocBuilder(
+      bloc: _cubit,
+      buildWhen: (previousState, currentState) {
+        return previousState != currentState;
+      },
+      builder: (BuildContext context, DietState state) {
+        if (state is DietInitialState) {
+          return Container(color: Colors.white);
+        }
+        if (state is DietLoadingState) {
+          return const Expanded(child: Center(child: CircularProgressIndicator()));
+        }
+        if (state is DietSocietyFailedState) {
+          return Container(color: Colors.black);
+        }
+
+        if (state is DietSocietySucceedState) {
+          return buildContent(context, state.data);
+        }
+
+        throw Exception('Please handle all states above $state');
+      },
     );
   }
 }

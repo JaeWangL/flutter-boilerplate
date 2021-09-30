@@ -33,4 +33,7 @@ Future<void> loadDiModules() async {
 
   // Views
   serviceLocator.registerFactory<MainCubit>(() => MainCubit());
+  serviceLocator.registerFactory<DietCubit>(() => DietCubit(
+    serviceLocator.get<GetDietSocietyUseCase>(),
+  ));
 }

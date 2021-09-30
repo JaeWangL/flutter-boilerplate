@@ -26,7 +26,7 @@ enum DietType {
 }
 
 @JsonSerializable()
-abstract class DietSocietyDTO {
+class DietSocietyDTO {
   final DietType type;
   final String value;
 
@@ -42,7 +42,7 @@ abstract class DietSocietyDTO {
 }
 
 @JsonSerializable()
-abstract class DietNavalDTO {
+class DietNavalDTO {
   final List<String> lunch;
   final List<String> dinner;
 

@@ -5,11 +5,14 @@ abstract class GetDietSocietyUseCase {
   final DietRepository _repository;
 
   GetDietSocietyUseCase(this._repository);
+
+  Stream<ApiResource<List<DietSocietyModel>>> execute();
 }
 
 class GetDietSocietyUseCaseImpl extends GetDietSocietyUseCase {
   GetDietSocietyUseCaseImpl(DietRepository repository) : super(repository);
 
-  Stream<ApiResource<DietSocietyModel>> execute() =>
-    _repository.getDietSociety$();
+  @override
+  Stream<ApiResource<List<DietSocietyModel>>> execute() =>
+      _repository.getDietSociety$();
 }

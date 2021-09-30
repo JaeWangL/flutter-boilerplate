@@ -9,6 +9,6 @@ part 'diet_api.g.dart';
 abstract class DietApi {
   factory DietApi(Dio dio, {String? baseUrl}) = _DietApi;
 
-  @GET('diet/society/today')
-  Future<LambdaBaseDTO<DietSocietyDTO>> getDietSocietyAsync();
+  @GET('/diet/society/today')
+  Future<LambdaBaseDTO<List<DietSocietyDTO>>> getDietSocietyAsync();
 }
