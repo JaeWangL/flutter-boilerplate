@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/configs/index.dart';
 import 'package:flutter_boilerplate/services/navigation/index.dart';
 import 'package:flutter_boilerplate/styles/index.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'di.dart' as di;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await Hive.initFlutter();
 
   await di.loadDiModules();
 

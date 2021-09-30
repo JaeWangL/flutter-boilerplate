@@ -15,7 +15,7 @@ class MainView extends BaseWidget<MainCubit, MainState> {
   final _tabViews = [
     const HomeView(),
     const ShuttleView(),
-    const DietView(),
+    DietView(),
     const NoticesView(),
     const SettingsView(),
   ];

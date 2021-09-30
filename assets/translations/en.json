@@ -5,5 +5,8 @@
     "tabNotices": "Notices",
     "tabShuttle": "Shuttle",
     "tabSettings": "More"
+  },
+  "diet": {
+    "title": "Diet"
   }
 }

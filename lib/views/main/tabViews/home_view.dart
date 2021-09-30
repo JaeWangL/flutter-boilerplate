@@ -10,19 +10,19 @@ class HomeView extends StatelessWidget {
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         GradientText(
           'Message Test',
-          colors: [
+          colors: const [
             Colors.blue,
             Colors.red,
           ],
-          style: TextStyle(fontSize: 42, fontWeight: FontWeight.w700),
+          style: const TextStyle(fontSize: 42, fontWeight: FontWeight.w700),
         ),
         GradientText(
           'Secondary Message',
-          colors: [
+          colors: const [
             Colors.purple,
             Colors.orange,
           ],
-          style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+          style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
         )
       ]),
     );

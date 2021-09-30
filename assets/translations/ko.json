@@ -5,5 +5,8 @@
     "tabNotices": "학사일정",
     "tabShuttle": "버스",
     "tabSettings": "더보기"
+  },
+  "diet": {
+    "title": "식단"
   }
 }
