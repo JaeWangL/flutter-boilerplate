@@ -5,12 +5,16 @@ import 'package:flutter_boilerplate/data/dio_interceptor.dart';
 import 'package:flutter_boilerplate/data/repositories/index.dart';
 import 'package:flutter_boilerplate/domain/useCases/index.dart';
 import 'package:flutter_boilerplate/services/navigation/index.dart';
+import 'package:flutter_boilerplate/services/storage/index.dart';
 import 'package:flutter_boilerplate/views/index.dart';
 import 'package:get_it/get_it.dart';
 
 final serviceLocator = GetIt.I;
 
 Future<void> loadDiModules() async {
+  // Services
+  serviceLocator.registerSingleton<SecureStorageService>(SecureStorageServiceImpl());
+
   // API
   serviceLocator.registerSingleton(DioInterceptor());
   serviceLocator.registerSingleton(DietApi(serviceLocator<DioInterceptor>().getDioInstance()));
