@@ -1,3 +1,4 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter_boilerplate/configs/index.dart';
 import 'package:flutter_boilerplate/data/apis/index.dart';
 import 'package:flutter_boilerplate/data/caching/index.dart';
@@ -5,15 +6,18 @@ import 'package:flutter_boilerplate/data/dio_interceptor.dart';
 import 'package:flutter_boilerplate/data/repositories/index.dart';
 import 'package:flutter_boilerplate/domain/useCases/index.dart';
 import 'package:flutter_boilerplate/services/navigation/index.dart';
+import 'package:flutter_boilerplate/services/network/index.dart';
 import 'package:flutter_boilerplate/services/storage/index.dart';
 import 'package:flutter_boilerplate/views/index.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 
 final serviceLocator = GetIt.I;
 
 Future<void> loadDiModules() async {
   // Services
-  serviceLocator.registerSingleton<SecureStorageService>(SecureStorageServiceImpl());
+  serviceLocator.registerSingleton<NetworkService>(NetworkServiceImpl(Connectivity()));
+  serviceLocator.registerSingleton<SecureStorageService>(SecureStorageServiceImpl(const FlutterSecureStorage()));
 
   // API
   serviceLocator.registerSingleton(DioInterceptor());

@@ -2,7 +2,9 @@ import 'package:flutter_boilerplate/services/storage/secure_storage_service.dart
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class SecureStorageServiceImpl extends SecureStorageService {
-  final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
+  final FlutterSecureStorage _secureStorage;
+
+  SecureStorageServiceImpl(this._secureStorage);
 
   @override
   Future<void> saveAsync(String key, String value) async {
